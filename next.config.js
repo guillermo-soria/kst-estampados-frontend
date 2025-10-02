@@ -7,6 +7,7 @@ checkEnvVariables()
  */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'standalone',
   logging: {
     fetches: {
       fullUrl: true,
@@ -35,6 +36,14 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "medusa-server-testing.s3.us-east-1.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "kst-estampados.medusajs.app",
+      },
+      {
+        protocol: "https",
+        hostname: "*.cloudflare.com",
       },
     ],
   },
