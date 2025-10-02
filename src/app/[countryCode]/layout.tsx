@@ -1,5 +1,5 @@
-// Solo usa edge runtime en builds de Cloudflare
-export const runtime = process.env.CLOUDFLARE_BUILD === 'true' ? 'edge' : undefined
+// Configuración de runtime para Cloudflare Pages
+export const runtime = 'edge'
 
 export default async function CountryLayout({
   children,

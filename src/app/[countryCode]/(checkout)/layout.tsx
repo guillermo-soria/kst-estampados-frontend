@@ -3,7 +3,7 @@ import ChevronDown from "@modules/common/icons/chevron-down"
 import MedusaCTA from "@modules/layout/components/medusa-cta"
 
 // Solo usa edge runtime en builds de Cloudflare
-export const runtime = process.env.CLOUDFLARE_BUILD === 'true' ? 'edge' : undefined
+export const runtime = 'edge'
 
 export default function CheckoutLayout({
   children,

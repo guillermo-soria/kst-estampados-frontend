@@ -1,9 +1,9 @@
 import { retrieveCustomer } from "@lib/data/customer"
-import { Toaster } from "@medusajs/ui"
 import AccountLayout from "@modules/account/templates/account-layout"
+import ToasterClient from "@modules/common/components/toaster-client"
 
 // Solo usa edge runtime en builds de Cloudflare
-export const runtime = process.env.CLOUDFLARE_BUILD === 'true' ? 'edge' : undefined
+export const runtime = 'edge'
 
 export default async function AccountPageLayout({
   dashboard,
@@ -17,7 +17,7 @@ export default async function AccountPageLayout({
   return (
     <AccountLayout customer={customer}>
       {customer ? dashboard : login}
-      <Toaster />
+      <ToasterClient />
     </AccountLayout>
   )
 }
