@@ -2,6 +2,9 @@ import { retrieveCustomer } from "@lib/data/customer"
 import { Toaster } from "@medusajs/ui"
 import AccountLayout from "@modules/account/templates/account-layout"
 
+// Solo usa edge runtime en builds de Cloudflare
+export const runtime = process.env.CLOUDFLARE_BUILD === 'true' ? 'edge' : undefined
+
 export default async function AccountPageLayout({
   dashboard,
   login,

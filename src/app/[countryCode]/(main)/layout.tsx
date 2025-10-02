@@ -9,6 +9,9 @@ import Footer from "@modules/layout/templates/footer"
 import Nav from "@modules/layout/templates/nav"
 import FreeShippingPriceNudge from "@modules/shipping/components/free-shipping-price-nudge"
 
+// Solo usa edge runtime en builds de Cloudflare
+export const runtime = process.env.CLOUDFLARE_BUILD === 'true' ? 'edge' : undefined
+
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
 }
