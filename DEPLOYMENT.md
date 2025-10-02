@@ -1,21 +1,76 @@
 # Guía de Despliegue en Cloudflare Pages
 
-## ✅ Estado Actual
-El proyecto está **LISTO PARA DESPLEGAR** en Cloudflare Pages con las siguientes configuraciones:
+# Soluciones de Despliegue para Medusa Storefront
 
-### 🔧 Configuraciones Implementadas
+## ⚠️ Problema Identificado
+- `@cloudflare/next-on-pages` está **DEPRECADO** 
+- Requiere Edge Runtime que es incompatible con Medusa UI
+- Error: rutas dinámicas necesitan `export const runtime = 'edge'`
 
-1. **Node.js Compatibility Mode**: Configurado en `wrangler.toml`
-2. **Build Commands**: Optimizados para Cloudflare (`npm run build:cloudflare`)
-3. **Runtime Configuration**: Sin Edge Runtime forzado, permite Node.js compatibility
-4. **All Components**: Funcionando correctamente con Medusa UI
+## 🔧 Alternativas de Despliegue
 
-### 📋 Archivos de Configuración
+### Opción 1: OpenNext + Cloudflare (Recomendado)
+```bash
+# Instalar OpenNext
+npm install --save-dev @opennext/aws
 
-- ✅ `wrangler.toml` - Configuración principal de Cloudflare
-- ✅ `next.config.js` - Configuración optimizada de Next.js
-- ✅ `package.json` - Scripts de build configurados
-- ✅ `_redirects` - Configuración de redirects para Cloudflare Pages
+# O para Cloudflare específicamente
+npm install --save-dev @opennext/cloudflare
+```
+
+### Opción 2: Vercel (Más Fácil)
+- Compatibilidad nativa con Next.js y Medusa
+- Sin problemas de Edge Runtime
+- Deploy automático desde GitHub
+
+### Opción 3: Netlify
+```bash
+# Instalar plugin de Netlify
+npm install --save-dev @netlify/plugin-nextjs
+```
+
+### Opción 4: Railway
+- Soporte nativo para Next.js
+- Deploy directo desde GitHub
+- Variables de entorno fáciles de configurar
+
+### Opción 5: Render
+- Soporte completo para Next.js
+- Deploy directo desde GitHub
+- Plan gratuito disponible
+
+## 🎯 Recomendación Inmediata
+
+## ✅ **STATUS: LISTO PARA DEPLOY EN OTRAS PLATAFORMAS**
+
+**Build verificado exitosamente para:**
+- ✅ Vercel (Recomendado - Probado)
+- ✅ Netlify 
+- ✅ Railway
+- ✅ Render
+
+### 🚀 Deploy Inmediato en Vercel
+
+**Opción más rápida - 5 minutos:**
+
+1. **Push tu código a GitHub** (si no lo has hecho)
+2. Ve a [vercel.com](https://vercel.com) 
+3. Click "Add New" → "Project"
+4. Importa tu repositorio
+5. Configura:
+   - **Framework**: Next.js (detectado automáticamente)
+   - **Root Directory**: `my-medusa-storefront`
+   - **Build Command**: `npm run build:vercel` (o usa el default)
+   
+6. **Variables de entorno** en Vercel:
+   ```
+   MEDUSA_BACKEND_URL=https://kst-estampados.medusajs.app
+   NEXT_PUBLIC_MEDUSA_BACKEND_URL=https://kst-estampados.medusajs.app
+   ```
+
+7. Click "Deploy" - ¡Listo! 🎉
+
+### 🔧 Archivos de Configuración Creados
 
 ### 🚀 Pasos para Desplegar
 
@@ -78,5 +133,155 @@ Si hay problemas durante el despliegue, verificar:
 3. Output directory: `.next`
 4. Node.js compatibility habilitado
 
+## 🚀 Pasos Específicos por Plataforma
+
+### Para Vercel (Recomendado para testing rápido)
+1. Ve a [vercel.com](https://vercel.com)
+2. Conecta tu repositorio de GitHub
+3. Configura variables de entorno:
+   ```
+   MEDUSA_BACKEND_URL=https://kst-estampados.medusajs.app
+   NEXT_PUBLIC_MEDUSA_BACKEND_URL=https://kst-estampados.medusajs.app
+   ```
+4. Deploy automático - ¡listo!
+
+### Para Railway
+1. Ve a [railway.app](https://railway.app)
+2. "Deploy from GitHub repo"
+3. Selecciona tu repositorio
+4. Configurar variables de entorno
+5. Deploy automático
+
+### Para Render
+1. Ve a [render.com](https://render.com)
+2. "New Static Site" o "New Web Service"
+3. Conectar repositorio
+4. Build command: `npm run build`
+5. Deploy
+
+## 💡 Implementación OpenNext para Cloudflare
+
+Si quieres seguir con Cloudflare, necesitamos migrar a OpenNext:
+
+```bash
+# 1. Instalar OpenNext
+npm install --save-dev @opennext/aws
+
+# 2. Crear configuración OpenNext
+# 3. Actualizar build scripts
+# 4. Configurar Cloudflare Workers
+```
+
 ---
 *Documentación generada el 2 de octubre de 2025*
+
+---
+
+# Guía de Despliegue en Cloudflare Pages
+
+# Soluciones de Despliegue para Medusa Storefront
+
+## ⚠️ Problema Identificado
+- `@cloudflare/next-on-pages` está **DEPRECADO** 
+- Requiere Edge Runtime que es incompatible con Medusa UI
+- Error: rutas dinámicas necesitan `export const runtime = 'edge'`
+
+## 🔧 Alternativas de Despliegue
+
+### Opción 1: OpenNext + Cloudflare (Recomendado)
+```bash
+# Instalar OpenNext
+npm install --save-dev @opennext/aws
+
+# O para Cloudflare específicamente
+npm install --save-dev @opennext/cloudflare
+```
+
+### Opción 2: Vercel (Más Fácil)
+- Compatibilidad nativa con Next.js y Medusa
+- Sin problemas de Edge Runtime
+- Deploy automático desde GitHub
+
+### Opción 3: Netlify
+```bash
+# Instalar plugin de Netlify
+npm install --save-dev @netlify/plugin-nextjs
+```
+
+### Opción 4: Railway
+- Soporte nativo para Next.js
+- Deploy directo desde GitHub
+- Variables de entorno fáciles de configurar
+
+### Opción 5: Render
+- Soporte completo para Next.js
+- Deploy directo desde GitHub
+- Plan gratuito disponible
+
+## 🎯 Recomendación Inmediata
+
+## ✅ **STATUS: LISTO PARA DEPLOY EN OTRAS PLATAFORMAS**
+
+**Build verificado exitosamente para:**
+- ✅ Vercel (Recomendado - Probado)
+- ✅ Netlify 
+- ✅ Railway
+- ✅ Render
+
+### 🚀 Deploy Inmediato en Vercel
+
+**Opción más rápida - 5 minutos:**
+
+1. **Push tu código a GitHub** (si no lo has hecho)
+2. Ve a [vercel.com](https://vercel.com) 
+3. Click "Add New" → "Project"
+4. Importa tu repositorio
+5. Configura:
+   - **Framework**: Next.js (detectado automáticamente)
+   - **Root Directory**: `my-medusa-storefront`
+   - **Build Command**: `npm run build:vercel` (o usa el default)
+   
+6. **Variables de entorno** en Vercel:
+   ```
+   MEDUSA_BACKEND_URL=https://kst-estampados.medusajs.app
+   NEXT_PUBLIC_MEDUSA_BACKEND_URL=https://kst-estampados.medusajs.app
+   ```
+
+7. Click "Deploy" - ¡Listo! 🎉
+
+### 🔧 Archivos de Configuración Creados
+
+- ✅ `vercel.json` - Configuración optimizada para Vercel
+- ✅ `next.config.js` - Output condicional para diferentes plataformas
+- ✅ Scripts de build específicos en `package.json`
+
+### 🎯 **RECOMENDACIÓN INMEDIATA**
+
+**Deploy en Vercel AHORA** - es la opción más rápida y compatible:
+- Deploy automático en minutos
+- Zero configuración adicional
+- Soporte nativo para Next.js + Medusa
+- Variables de entorno fáciles de configurar
+
+### 🔄 **Plan B: Volver a Cloudflare**
+
+Si quieres seguir con Cloudflare después del test en Vercel:
+
+1. **OpenNext Migration**:
+   ```bash
+   npm install --save-dev @opennext/aws
+   # Configurar OpenNext adapter
+   ```
+
+2. **O usar Cloudflare Workers**:
+   - Crear nuevo proyecto en Cloudflare Workers
+   - Usar adaptador específico para Workers
+
+### ⚡ **Deploy en 5 Minutos**
+
+1. Conecta tu repo a Vercel
+2. Configura las 2 variables de entorno
+3. Deploy automático
+4. ¡Tu storefront está online! 🚀
+
+¿Procedemos con Vercel para tener el sitio online rápidamente?

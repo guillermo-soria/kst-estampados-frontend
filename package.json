@@ -11,6 +11,9 @@
     "dev": "next dev --turbopack -p 8000",
     "build": "next build",
     "build:cloudflare": "NODE_ENV=production CLOUDFLARE_BUILD=true next build",
+    "build:vercel": "next build",
+    "build:netlify": "next build",
+    "build:railway": "next build",
     "start": "next start -p 8000",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build"

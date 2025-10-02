@@ -7,7 +7,8 @@ checkEnvVariables()
  */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'standalone',
+  // Solo usar standalone para Cloudflare
+  output: process.env.CLOUDFLARE_BUILD === 'true' ? 'standalone' : undefined,
   logging: {
     fetches: {
       fullUrl: true,

@@ -1,0 +1,15 @@
+# Render Configuration
+services:
+  - type: web
+    name: kst-estampados-storefront
+    env: node
+    plan: free
+    buildCommand: npm run build:railway
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+      - key: MEDUSA_BACKEND_URL
+        value: https://kst-estampados.medusajs.app
+      - key: NEXT_PUBLIC_MEDUSA_BACKEND_URL
+        value: https://kst-estampados.medusajs.app
