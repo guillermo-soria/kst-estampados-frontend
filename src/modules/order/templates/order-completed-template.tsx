@@ -1,7 +1,5 @@
-"use client"
-
-import { useEffect, useState } from "react"
 import { Heading } from "@medusajs/ui"
+import { cookies as nextCookies } from "next/headers"
 
 import CartTotals from "@modules/common/components/cart-totals"
 import Help from "@modules/order/components/help"
@@ -16,20 +14,12 @@ type OrderCompletedTemplateProps = {
   order: HttpTypes.StoreOrder
 }
 
-export default function OrderCompletedTemplate({
+export default async function OrderCompletedTemplate({
   order,
 }: OrderCompletedTemplateProps) {
-  const [isOnboarding, setIsOnboarding] = useState(false)
+  const cookies = await nextCookies()
 
-  useEffect(() => {
-    // Check for onboarding cookie on client side
-    const onboardingCookie = document.cookie
-      .split('; ')
-      .find(row => row.startsWith('_medusa_onboarding='))
-      ?.split('=')[1]
-    
-    setIsOnboarding(onboardingCookie === 'true')
-  }, [])
+  const isOnboarding = cookies.get("_medusa_onboarding")?.value === "true"
 
   return (
     <div className="py-6 min-h-[calc(100vh-64px)]">

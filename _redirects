@@ -1,0 +1,7 @@
+# Cloudflare Pages redirect configuration
+
+# Redirect all requests to main domain (if needed)
+# https://www.yourdomain.com/* https://yourdomain.com/:splat 301!
+
+# SPA fallback for client-side routing (if needed for dynamic routes)
+/*    /index.html   200
