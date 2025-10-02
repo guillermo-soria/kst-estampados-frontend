@@ -2,6 +2,22 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+/* Custom KST brand colors and styles */
+:root {
+  --kst-lime: #00FF00;
+  --kst-magenta: #FF00FF;
+  --kst-pink: #FF1493;
+  --kst-cyan: #00FFFF;
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
@@ -56,6 +72,67 @@
 
   .contrast-btn {
     @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
+  }
+  
+  /* Custom KST button styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-kst-green to-kst-magenta text-black px-6 py-3 rounded-lg font-bold hover:from-kst-green-dark hover:to-kst-magenta-dark transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-kst-green text-kst-green px-6 py-3 rounded-lg font-semibold hover:bg-kst-green hover:text-black transition-all duration-300;
+  }
+  
+  .btn-kst {
+    @apply bg-gradient-to-r from-kst-green via-kst-magenta to-black text-white px-8 py-4 rounded-lg font-bold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105;
+  }
+  
+  /* Card styles */
+  .card {
+    @apply bg-gray-900 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-700;
+  }
+  
+  .card-hover {
+    @apply transform hover:scale-105 transition-transform duration-300;
+  }
+
+  /* Product thumbnail override */
+  [data-testid="product-wrapper"] > div:first-child {
+    background-color: #111827 !important;
+    border: 1px solid #374151 !important;
+  }
+  
+  /* Force dark background for product cards */
+  .product-card,
+  [data-testid="product-wrapper"] {
+    background-color: #111827 !important;
+  }
+  
+  /* Override any Container component background */
+  .ui-container,
+  .medusa-container {
+    background-color: #111827 !important;
+  }
+
+  /* More aggressive product card styling */
+  [data-testid="product-wrapper"] * {
+    background-color: #111827 !important;
+  }
+  
+  /* Target any white backgrounds in product grid */
+  .grid > div,
+  .grid > div > *,
+  .product-grid > div,
+  .product-grid > div > * {
+    background-color: #111827 !important;
+  }
+  
+  /* Override Medusa UI components */
+  .ui-bg-subtle,
+  .bg-ui-bg-subtle,
+  [class*="bg-ui-bg"],
+  [class*="ui-bg"] {
+    background-color: #111827 !important;
   }
 
   .text-xsmall-regular {

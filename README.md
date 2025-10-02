@@ -1,23 +1,212 @@
-<p align="center">
-  <a href="https://www.medusajs.com">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/59018053/229103275-b5e482bb-4601-46e6-8142-244f531cebdb.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/59018053/229103726-e5b529a3-9b3f-4970-8a1f-c6af37f087bf.svg">
-    <img alt="Medusa logo" src="https://user-images.githubusercontent.com/59018053/229103726-e5b529a3-9b3f-4970-8a1f-c6af37f087bf.svg">
-    </picture>
-  </a>
-</p>
+# 🌟 KST Estampados - Frontend (Next.js)
 
-<h1 align="center">
-  Medusa Next.js Starter Template
-</h1>
+Frontend de la tienda online KST Estampados desarrollado con Next.js y diseño neón personalizado.
 
-<p align="center">
-Combine Medusa's modules for your commerce backend with the newest Next.js 15 features for a performant storefront.</p>
+## ✨ Características
 
-<p align="center">
-  <a href="https://github.com/medusajs/medusa/blob/master/CONTRIBUTING.md">
-    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs welcome!" />
+### 🎨 Diseño Personalizado
+- **Tema neón**: Paleta de colores vibrantes con verde ácido (#39FF14), magenta (#FF0080) y rosa (#FF69B4)
+- **Interfaz moderna**: Gradientes, sombras neón y animaciones fluidas
+- **Responsive**: Adaptado para dispositivos móviles y desktop
+- **Modo oscuro**: Fondo negro con acentos neón para una experiencia visual inmersiva
+
+### 🛍️ Funcionalidades E-commerce
+- **Catálogo de productos**: Grid de productos con filtros y ordenamiento
+- **Carrito inteligente**: Contador dinámico que se actualiza en tiempo real
+- **Gestión de usuarios**: Sistema de autenticación y perfiles
+- **Navegación optimizada**: Menú horizontal con iconos SVG personalizados
+- **Experiencia fluida**: Transiciones suaves y efectos hover
+
+### 🚀 Tecnologías
+
+- **Next.js 15** - Framework React con App Router
+- **TypeScript** - Tipado estático
+- **Tailwind CSS** - Framework CSS utility-first
+- **Medusa.js SDK** - Integración con backend e-commerce
+- **React** - Biblioteca de interfaz de usuario
+
+## 🎨 Paleta de Colores KST
+
+```css
+/* Colores principales */
+--kst-lime: #39FF14;        /* Verde ácido neón */
+--kst-magenta: #FF0080;     /* Magenta vibrante */
+--kst-pink: #FF69B4;        /* Rosa neón */
+--kst-green: #00FF41;       /* Verde Matrix */
+
+/* Fondos y grises */
+--background: #000000;       /* Negro profundo */
+--surface: #111827;         /* Gris muy oscuro */
+--border: #374151;          /* Gris medio */
+```
+
+## 📋 Requisitos Previos
+
+- Node.js 18+
+- npm o yarn
+- Backend KST Estampados corriendo en puerto 9000
+
+## 🏃‍♂️ Instalación y Configuración
+
+### 1. Clonar el repositorio
+```bash
+git clone <url-del-repo>
+cd kst-estampados-frontend
+```
+
+### 2. Instalar dependencias
+```bash
+npm install
+```
+
+### 3. Configurar variables de entorno
+```bash
+cp .env.local.example .env.local
+```
+
+Editar `.env.local`:
+```env
+NEXT_PUBLIC_MEDUSA_BACKEND_URL=http://localhost:9000
+NEXT_PUBLIC_BASE_URL=http://localhost:8000
+NEXT_PUBLIC_DEFAULT_REGION=us
+REVALIDATE_SECRET=supersecret
+```
+
+### 4. Iniciar el servidor de desarrollo
+```bash
+npm run dev
+```
+
+El frontend estará disponible en `http://localhost:8000`
+
+## 🎯 Funcionalidades Implementadas
+
+### ✅ Navegación
+- [x] Logo KST personalizado con animaciones
+- [x] Menú horizontal responsive
+- [x] Iconos SVG personalizados para usuario y carrito
+- [x] Efectos hover neón
+- [x] Contador de carrito dinámico
+
+### ✅ Páginas Principales
+- [x] **Home**: Hero section con gradientes neón, features y CTA
+- [x] **Store**: Grid de productos con fondo oscuro
+- [x] **Product**: Páginas de detalle de producto
+- [x] **Cart**: Carrito de compras funcional
+- [x] **Account**: Gestión de usuario
+
+### ✅ Componentes Personalizados
+- [x] **Hero Section**: Gradientes y animaciones neón
+- [x] **Product Cards**: Fondo oscuro con efectos hover
+- [x] **Buttons**: Estilos neón con gradientes
+- [x] **Icons**: SVGs personalizados para UX mejorada
+
+## 📦 Estructura del Proyecto
+
+```
+src/
+├── app/                    # App Router de Next.js
+│   ├── [countryCode]/     # Rutas dinámicas por país
+│   ├── layout.tsx         # Layout principal
+│   └── globals.css        # Estilos globales personalizados
+├── lib/                   # Utilidades y configuración
+│   ├── config.ts         # Configuración de Medusa
+│   ├── data/             # Funciones de datos
+│   └── util/             # Utilidades helper
+├── modules/              # Componentes modulares
+│   ├── layout/          # Componentes de layout
+│   ├── home/            # Componentes del home
+│   ├── products/        # Componentes de productos
+│   ├── cart/            # Componentes del carrito
+│   └── common/          # Componentes reutilizables
+└── styles/              # Archivos de estilos
+    └── globals.css      # Estilos personalizados KST
+```
+
+## 🎨 Personalización de Estilos
+
+### Tema Neón KST
+Los estilos principales están en `src/styles/globals.css`:
+
+```css
+/* Gradientes neón */
+.btn-kst {
+  background: linear-gradient(45deg, #39FF14, #FF0080, #000);
+}
+
+/* Sombras neón */
+.shadow-neon-lime {
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+}
+
+/* Animaciones */
+.animate-neon-pulse {
+  animation: neonPulse 2s ease-in-out infinite alternate;
+}
+```
+
+## 📱 Responsive Design
+
+- **Mobile First**: Diseño optimizado para móviles
+- **Breakpoints**: sm (640px), md (768px), lg (1024px), xl (1280px)
+- **Navigation**: Menú adaptativo según dispositivo
+- **Grid**: Sistema de grid responsive para productos
+
+## 🚀 Scripts Disponibles
+
+- `npm run dev` - Servidor de desarrollo
+- `npm run build` - Construir para producción
+- `npm run start` - Servidor de producción
+- `npm run lint` - Ejecutar ESLint
+- `npm run type-check` - Verificar tipos TypeScript
+
+## 🔗 Integración con Backend
+
+### Endpoints Utilizados
+- **Products**: `/store/products`
+- **Cart**: `/store/carts`
+- **Auth**: `/store/auth`
+- **Regions**: `/store/regions`
+
+### SDK de Medusa
+Configurado en `src/lib/config.ts` para conectar con el backend.
+
+## 🎭 Componentes Destacados
+
+### 1. Hero Section
+- Gradientes animados
+- Texto con efectos neón
+- CTA buttons personalizados
+
+### 2. Product Grid
+- Fondo oscuro con bordes neón
+- Hover effects
+- Responsive layout
+
+### 3. Navigation
+- Logo animado
+- Iconos SVG custom
+- Contador de carrito dinámico
+
+## 👥 Contribuir
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT.
+
+## 🆘 Soporte
+
+Para soporte, contacta a: [tu-email@ejemplo.com]
+
+---
+
+**KST Estampados** - E-commerce moderno con diseño neón 🎨✨
   </a>
   <a href="https://discord.gg/xpCwq3Kfn8">
     <img src="https://img.shields.io/badge/chat-on%20discord-7289DA.svg" alt="Discord Chat" />

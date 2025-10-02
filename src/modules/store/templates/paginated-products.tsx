@@ -74,7 +74,7 @@ export default async function PaginatedProducts({
       >
         {products.map((p) => {
           return (
-            <li key={p.id}>
+            <li key={p.id} className="bg-gray-900 rounded-lg overflow-hidden border border-gray-700 shadow-lg hover:shadow-kst-magenta/30 transition-all duration-300">
               <ProductPreview product={p} region={region} />
             </li>
           )
