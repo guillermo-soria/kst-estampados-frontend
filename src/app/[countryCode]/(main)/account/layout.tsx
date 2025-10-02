@@ -2,8 +2,8 @@ import { retrieveCustomer } from "@lib/data/customer"
 import AccountLayout from "@modules/account/templates/account-layout"
 import ToasterClient from "@modules/common/components/toaster-client"
 
-// Solo usa edge runtime en builds de Cloudflare
-export const runtime = 'edge'
+// No forzar Edge Runtime - permitir que Cloudflare use Node.js compatibility
+// export const runtime = 'edge'
 
 export default async function AccountPageLayout({
   dashboard,

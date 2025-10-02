@@ -1,5 +1,5 @@
-// Configuración de runtime para Cloudflare Pages
-export const runtime = 'edge'
+// No forzar Edge Runtime - permitir que Cloudflare use Node.js compatibility
+// export const runtime = 'edge'
 
 export default async function CountryLayout({
   children,

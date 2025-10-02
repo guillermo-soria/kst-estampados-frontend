@@ -2,8 +2,8 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import ChevronDown from "@modules/common/icons/chevron-down"
 import MedusaCTA from "@modules/layout/components/medusa-cta"
 
-// Solo usa edge runtime en builds de Cloudflare
-export const runtime = 'edge'
+// No forzar Edge Runtime - permitir que Cloudflare use Node.js compatibility
+// export const runtime = 'edge'
 
 export default function CheckoutLayout({
   children,

@@ -1,15 +1,27 @@
+'use client'
+
+import { useEffect, useState } from "react"
 import { declineTransferRequest } from "@lib/data/orders"
 import { Heading, Text } from "@medusajs/ui"
 import TransferImage from "@modules/order/components/transfer-image"
 
-export default async function TransferPage({
+export default function TransferPage({
   params,
 }: {
   params: { id: string; token: string }
 }) {
   const { id, token } = params
+  const [result, setResult] = useState<{ success: boolean; error: any; order: any } | null>(null)
 
-  const { success, error } = await declineTransferRequest(id, token)
+  useEffect(() => {
+    declineTransferRequest(id, token).then(setResult)
+  }, [id, token])
+
+  if (!result) {
+    return <div>Loading...</div>
+  }
+
+  const { success, error } = result
 
   return (
     <div className="flex flex-col gap-y-4 items-start w-2/5 mx-auto mt-10 mb-20">

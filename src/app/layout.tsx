@@ -1,7 +1,9 @@
 import { getBaseURL } from "@lib/util/env"
 import { Metadata } from "next"
 import "styles/globals.css"
-export const runtime = 'edge';
+
+// No forzar Edge Runtime - permitir que Cloudflare use Node.js compatibility
+// export const runtime = 'edge'
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
