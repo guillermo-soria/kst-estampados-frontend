@@ -71,4 +71,30 @@ Si hay problemas:
 3. Configurar build: `npm run build:netlify`
 
 ---
+
+## 🔧 Modo "En Construcción" Activado
+
+**Estado actual**: La página principal muestra un mensaje de "En construcción" elegante y profesional.
+
+**Para desactivar cuando esté listo:**
+1. Edita el archivo `src/lib/under-construction.ts`
+2. Cambia `enabled: true` a `enabled: false`
+3. Commit y push los cambios
+4. Deploy automático en Vercel
+
+**Funcionalidades del modo construcción:**
+- ✅ Página elegante con branding de KST
+- ✅ Información de contacto
+- ✅ Preview de funcionalidades futuras
+- ✅ Barra de progreso (85% completado)
+- ✅ Responsive design
+- ✅ Animaciones sutiles
+- ✅ Mantiene la estética del brand
+
+**Rutas que siguen funcionando:**
+- `/admin` - Acceso al panel de administración
+- `/api/*` - Todas las APIs de Medusa
+
+---
+
 *Documentación actualizada - 2 de octubre de 2025*

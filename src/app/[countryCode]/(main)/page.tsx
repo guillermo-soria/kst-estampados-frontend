@@ -1,4 +1,6 @@
 import { Metadata } from "next"
+import UnderConstruction from "@components/under-construction"
+import { UNDER_CONSTRUCTION } from "@lib/under-construction"
 
 import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
@@ -16,6 +18,11 @@ export const metadata: Metadata = {
 export default async function Home(props: {
   params: Promise<{ countryCode: string }>
 }) {
+  // Mostrar página de construcción si está habilitada
+  if (UNDER_CONSTRUCTION.enabled) {
+    return <UnderConstruction />
+  }
+
   const params = await props.params
 
   const { countryCode } = params
