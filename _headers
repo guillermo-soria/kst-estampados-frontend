@@ -1,0 +1,10 @@
+# Cloudflare Pages Configuration
+# Force npm usage instead of yarn
+
+[build]
+  command = "npm install && npm run build"
+  publish = ".next"
+
+[build.environment]
+  NPM_FLAGS = "--production=false"
+  NODE_VERSION = "18"
