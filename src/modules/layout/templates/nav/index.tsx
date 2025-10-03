@@ -3,6 +3,7 @@ import KSTLogo from "@modules/common/components/kst-logo"
 import { UserIcon } from "@modules/common/icons"
 import CartCounter from "@modules/layout/components/cart-counter"
 import { HttpTypes } from "@medusajs/types"
+import { UNDER_CONSTRUCTION } from "@lib/under-construction"
 
 interface NavProps {
   cart?: HttpTypes.StoreCart | null
@@ -31,32 +32,36 @@ export default function Nav({ cart }: NavProps) {
           </div>
 
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-            <nav className="hidden md:flex space-x-8">
-              <LocalizedClientLink
-                href="/"
-                className="hover:text-kst-lime transition-colors duration-300 text-gray-300"
-              >
-                Inicio
-              </LocalizedClientLink>
-              <LocalizedClientLink
-                href="/store"
-                className="hover:text-kst-magenta transition-colors duration-300 text-gray-300"
-              >
-                Remeras
-              </LocalizedClientLink>
-            </nav>
+            {!UNDER_CONSTRUCTION.enabled && (
+              <nav className="hidden md:flex space-x-8">
+                <LocalizedClientLink
+                  href="/"
+                  className="hover:text-kst-lime transition-colors duration-300 text-gray-300"
+                >
+                  Inicio
+                </LocalizedClientLink>
+                <LocalizedClientLink
+                  href="/store"
+                  className="hover:text-kst-magenta transition-colors duration-300 text-gray-300"
+                >
+                  Remeras
+                </LocalizedClientLink>
+              </nav>
+            )}
             
             {/* Iconos de navegación */}
-            <div className="flex items-center space-x-4">
-              <LocalizedClientLink
-                href="/account"
-                className="text-gray-300 hover:text-kst-lime p-2 transition-colors duration-300"
-                data-testid="nav-account-link"
-              >
-                <UserIcon className="w-6 h-6" />
-              </LocalizedClientLink>
-              <CartCounter initialCart={cart} />
-            </div>
+            {!UNDER_CONSTRUCTION.enabled && (
+              <div className="flex items-center space-x-4">
+                <LocalizedClientLink
+                  href="/account"
+                  className="text-gray-300 hover:text-kst-lime p-2 transition-colors duration-300"
+                  data-testid="nav-account-link"
+                >
+                  <UserIcon className="w-6 h-6" />
+                </LocalizedClientLink>
+                <CartCounter initialCart={cart} />
+              </div>
+            )}
           </div>
         </nav>
       </header>

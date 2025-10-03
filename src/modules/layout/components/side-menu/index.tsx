@@ -8,12 +8,15 @@ import { Fragment } from "react"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CountrySelect from "../country-select"
 import { HttpTypes } from "@medusajs/types"
+import { UNDER_CONSTRUCTION } from "@lib/under-construction"
 
 const SideMenuItems = {
   Home: "/",
-  Store: "/store",
-  Account: "/account",
-  Cart: "/cart",
+  ...(UNDER_CONSTRUCTION.enabled ? {} : {
+    Store: "/store",
+    Account: "/account",
+    Cart: "/cart",
+  })
 }
 
 const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
