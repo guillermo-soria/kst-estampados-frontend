@@ -34,7 +34,7 @@ export default function UnderConstruction() {
             🚧 En <span className="text-kst-magenta">Construcción</span> 🚧
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Estamos trabajando duro para traerte la mejor experiencia en 
+            Estamos trabajando para traerte la mejor experiencia en 
             <span className="text-kst-lime font-semibold"> remeras estampadas</span> y 
             <span className="text-kst-pink font-semibold"> diseños únicos</span>.
           </p>
